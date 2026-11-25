@@ -1,0 +1,44 @@
+const quiz = [
+  {
+    question: "What is 2 + 2?",
+    answer: 4
+  },
+  {
+    question: "What is 5 * 3?",
+    answer: 15
+  },
+  {
+    question: "What is 10 - 6?",
+    answer: 4
+  },
+  {
+    question: "What is 8 + 7?",
+    answer: 15
+  },
+  {
+    question: "What is 9 * 2?",
+    answer: 18
+  },
+  {
+    question: "What is 14 - 5?",
+    answer: 9
+  },
+  {
+    question: "What is 6 + 6?",
+    answer: 12
+  },
+  {
+    question: "What is 7 * 4?",
+    answer: 28
+  },
+  {
+    question: "What is 12 - 4?",
+    answer: 8
+  },
+  {
+    question: "What is 3 + 9?",
+    answer: 12
+  }
+];
+
+module.exports = quiz;

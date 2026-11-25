@@ -1,0 +1,30 @@
+-- database: .moviedb.sqlite3
+
+CREATE TABLE if NOT EXISTS movie(movie_id INTEGER PRIMARY KEY AUTOINCREMENT,movie_name TEXT,genre TEXT, duration INTEGER);
+
+CREATE TABLE if NOT EXISTS multiplex(multiplex_id INTEGER PRIMARY KEY AUTOINCREMENT,multiplex_name TEXT,location TEXT);
+
+CREATE TABLE if NOT EXISTS hall(hall_id INTEGER PRIMARY KEY AUTOINCREMENT,hall_name TEXT,multiplex_id INTEGER,FOREIGN KEY(multiplex_id) REFERENCES multiplex(multiplex_id));
+CREATE TABLE IF NOT EXISTS shows(
+    show_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    movie_id INTEGER,
+    hall_id INTEGER,
+    show_time TEXT,
+    FOREIGN KEY(movie_id) REFERENCES movie(movie_id),
+    FOREIGN KEY(hall_id) REFERENCES hall(hall_id)
+);
+INSERT into movie(movie_name, genre, duration) values("Pushpa 2", "Action", 200);
+INSERT into multiplex(multiplex_name, location) values("Inox","kolkata");
+DELETE FROM hall
+WHERE hall_id = 1;
+INSERT into hall(hall_name, multiplex_id) values("Hall 1",1);
+SELECT * FROM movie;
+SELECT * FROM hall;
+INSERT INTO shows(movie_id, hall_id, show_time)
+SELECT m.movie_id, h.hall_id, '6:30 PM'
+FROM movie m
+JOIN hall h ON h.multiplex_id = 1
+WHERE m.movie_name = 'Pushpa 2'
+AND h.hall_name = 'Hall 1';
+
+
